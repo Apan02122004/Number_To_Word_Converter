@@ -1,3 +1,5 @@
+# Program to convert any number to its word form
+
 DIGITS = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eighth', 'Nine', '']
 DUAL_DIGITS = ['Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'seventeen', 'Eighteen', 'Nineteen',
                '']
