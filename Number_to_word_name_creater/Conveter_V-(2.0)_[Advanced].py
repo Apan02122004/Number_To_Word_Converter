@@ -28,10 +28,10 @@ if __name__ == '__main__':
 
     TENS = [EMPTY, EMPTY, "Twenty ", "Thirty ", "Forty ", "Fifty ",
             "Sixty ", "Seventy ", "Eighty ", "Ninety "]
-    
+
     try:
         while True:
             value = int(input(' Enter number to convert : '))
-            print(converter(value))
+            print(f'NUMBER : {converter(value)}')
     except Exception as E:
         print(E)
