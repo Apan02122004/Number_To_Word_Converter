@@ -85,7 +85,7 @@ def word_converter():
                     l3 = UNITS[1]
                     result = [l1, l2, l3]
             elif 11 <= int(value[3] + value[4]) <= 19:  # 94118
-                if value[0] == '1' and value[1] == '0':  # 10415
+                if int(value[0]) == 1 and int(value[1]) == 0:  # 10415
                     l1 = 'Ten'
                 else:
                     l1 = DUAL_DIGITS[int(value[1]) - 1]
@@ -95,7 +95,7 @@ def word_converter():
                 l5 = DUAL_DIGITS[int(value[4]) - 1]
                 result = [l1, l2, l3, l4, l5]
             else:
-                if value[0] == '1' and value[1] == '0':  # 10455
+                if int(value[0]) == 1 and int(value[1]) == 0:  # 10455
                     l1 = 'Ten'
                     l2 = UNITS[1]
                     l3 = DIGITS[int(value[2]) - 1]
@@ -103,7 +103,7 @@ def word_converter():
                     l5 = TENS[int(value[3]) - 1]
                     l6 = DIGITS[int(value[4]) - 1]
                     result = [l1, l2, l3, l4, l5, l6]
-                elif 11 <= int(value[0] + value[1]) >= 19:  # 11455
+                elif 11 <= int(value[0] + value[1]) <= 19:  # 11455
                     l1 = DUAL_DIGITS[int(value[1]) - 1]
                     l2 = UNITS[1]
                     l3 = DIGITS[int(value[2]) - 1]
@@ -112,10 +112,10 @@ def word_converter():
                     l6 = DIGITS[int(value[4]) - 1]
                     result = [l1, l2, l3, l4, l5, l6]
                 else:
-                    if int(value[1]) == 0 and int(value[0]) >= 9:
-                        l1 = TENS[int(value[1]) - 1]
-                    elif int(value[0] + value[1]) <= 20:
-                        l0 = DUAL_DIGITS[int(value[0]) - 1]
+                    if int(value[1]) == 0 and int(value[0]) <= 9:
+                        l1 = TENS[int(value[0]) - 1]
+                    elif 20 <= int(value[0] + value[1]) <= 19:
+                        l0 = TENS[int(value[0]) - 1]
                         l1 = DIGITS[int(value[1]) - 1]
                     l2 = UNITS[1]
                     l3 = DIGITS[int(value[2]) - 1]
@@ -123,10 +123,11 @@ def word_converter():
                     l5 = TENS[int(value[3]) - 1]
                     l6 = DIGITS[int(value[4]) - 1]
                     try:
-                        result = [l1, l2, l3, l4, l5, l6]
+
+                        result = [l0, l1, l2, l3, l4, l5, l6]
                     except:
                         pass
-                        result = [l0, l1, l2, l3, l4, l5, l6]
+                        result = [l1, l2, l3, l4, l5, l6]
     # Lakh place
     elif length == 6 or length == 7:
         if length == 6:
@@ -203,7 +204,7 @@ def word_converter():
                 l4 = UNITS[1]
                 l6 = TENS[int(value[2]) - 1]
                 l5 = DIGITS[int(value[4]) - 1]
-                l7 = UNITS[1]
+                l7 = UNITS[0]
                 l8 = TENS[int(value[5]) - 1]
                 l9 = DIGITS[int(value[6]) - 1]
                 try:
@@ -367,17 +368,20 @@ def word_converter():
                 except:
                     pass
                     result = [l9, l11, l8, l7, l3, l2, l1, l4, l5]
-
+    print(result)
     return result
 
 
 def configure(result: [list]):
     apr = []
     for x in result:
-        if x == '':
-            index = x.index('')
-            result1 = result.pop((int(index) + 2) - int(index))
-            apr.append(result1)
+        try:
+            if x == '':
+                index = x.index('')
+                result1 = result.pop((int(index) + 2) - int(index))
+                apr.append(result1)
+        except:
+            pass
     print(apr)
     for x in apr:
         for y in result:
@@ -387,12 +391,19 @@ def configure(result: [list]):
     return result
 
 
-def war(crt):
+def war(crt: [list]):
+    for x in crt:
+        if x in UNITS:
+            x_index = crt.index(x)
+            if crt[int(x_index) + 1] in UNITS:
+                crt.remove(crt[int(x_index) + 1])
+    print('Edited : ' + crt)
     end = ''
-    for x in range(len(crt)):
-        end += str(crt[x])
+    length = int(len(crt))
+    for x in range(length):
+        end += crt[x]
         end += ' '
-    print(crt)
+    print(end)
 
 
 if __name__ == '__main__':

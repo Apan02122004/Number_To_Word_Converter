@@ -17,21 +17,20 @@ def converter(n):
     result += number_handler((n % 100), "")
     return result
 
+while True:
+    if __name__ == '__main__':
+        EMPTY = ""
 
-if __name__ == '__main__':
-    EMPTY = ""
+        DIGIT = [EMPTY, "One ", "Two ", "Three ", "Four ", "Five ", "Six ",
+                 "Seven ", "Eight ", "Nine ", "Ten ", "Eleven ", "Twelve ",
+                 "Thirteen ", "Fourteen ", "Fifteen ", "Sixteen ",
+                 "Seventeen ", "Eighteen ", "Nineteen "]
 
-    DIGIT = [EMPTY, "One ", "Two ", "Three ", "Four ", "Five ", "Six ",
-             "Seven ", "Eight ", "Nine ", "Ten ", "Eleven ", "Twelve ",
-             "Thirteen ", "Fourteen ", "Fifteen ", "Sixteen ",
-             "Seventeen ", "Eighteen ", "Nineteen "]
+        TENS = [EMPTY, EMPTY, "Twenty ", "Thirty ", "Forty ", "Fifty ",
+                "Sixty ", "Seventy ", "Eighty ", "Ninety "]
 
-    TENS = [EMPTY, EMPTY, "Twenty ", "Thirty ", "Forty ", "Fifty ",
-            "Sixty ", "Seventy ", "Eighty ", "Ninety "]
-
-    try:
-        while True:
+        try:
             value = int(input(' Enter number to convert : '))
             print(f'NUMBER : {converter(value)}')
-    except Exception as E:
-        print(E)
+        except Exception as E:
+            print(E)
