@@ -22,11 +22,11 @@ def number_handler(n, suffix):
                                                                                              - 2 0 0 0 0 0 0 0           
                         return value = 5(Five), crore                                            5 4 5 3 8 7 0 
                                                                                                  5 0 0 0 0 0 0
-                             n = 2545387                                                       -- This goes on till end
-                                n // 10000000 => 2545387 // 10000000 = 0                       and due to flour division
-                                0 % 100 = 0                                                    only returns value before                  
-                                                                                               decimal place 
-                        returns value o,''                                                     return value = 0 
+                             n = 2545387                                                      -- This goes on till end
+                                n // 10000000 => 2545387 // 10000000 = 0                      and due to flour division
+                                0 % 100 = 0                                                   only returns value before                  
+                                                                                              decimal place 
+                        returns value o,''                                                    return value = 0 
                         if number is greater than One crore                                            
                         We will get two digits from % as remainder                             
     """
