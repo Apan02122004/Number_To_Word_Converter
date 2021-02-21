@@ -10,25 +10,25 @@ def number_handler(n, suffix):
 
 
 """ Example Calculation :- 
-                        n = 51234565 
-                        n // 10000000 => 51234565 // 10000000 = 5                  
-                        5 % 100 = 5                                                      
-
-                        return value = 5(Five), crore                                     
-
-
-                        if number is less than a crore value                        10000000 | 2 5 4 5 3 8 7 | 0.254387
-                                                                                               2 5 4 5 3 8 7 0 
-                                                                                             - 2 0 0 0 0 0 0 0           
-                        return value = 5(Five), crore                                            5 4 5 3 8 7 0 
-                                                                                                 5 0 0 0 0 0 0
-                             n = 2545387                                                      -- This goes on till end
-                                n // 10000000 => 2545387 // 10000000 = 0                      and due to flour division
-                                0 % 100 = 0                                                   only returns value before                  
-                                                                                              decimal place 
-                        returns value o,''                                                    return value = 0 
-                        if number is greater than One crore                                            
-                        We will get two digits from % as remainder                             
+        n = 51234565 
+        n // 10000000 => 51234565 // 10000000 = 5                  
+        5 % 100 = 5                                                      
+    
+        return value = 5(Five), crore                                     
+    
+    
+        if number is less than a crore value                        10000000 | 2 5 4 5 3 8 7 | 0.254387
+                                                                               2 5 4 5 3 8 7 0 
+                                                                             - 2 0 0 0 0 0 0 0           
+        return value = 5(Five), crore                                            5 4 5 3 8 7 0 
+                                                                                 5 0 0 0 0 0 0
+             n = 2545387                                                      -- This goes on till end
+                n // 10000000 => 2545387 // 10000000 = 0                      and due to flour division
+                0 % 100 = 0                                                   only returns value before                  
+                                                                              decimal place 
+        returns value o,''                                                    return value = 0 
+        if number is greater than One crore                                            
+        We will get two digits from % as remainder                             
     """
 
 
