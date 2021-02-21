@@ -1,5 +1,6 @@
 # Program to convert any number to its word form
 
+# Lists used in program to name the numbers ....
 DIGITS = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eighth', 'Nine', '']
 DUAL_DIGITS = ['Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'seventeen', 'Eighteen', 'Nineteen',
                '']
@@ -7,17 +8,19 @@ TENS = ['Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty
 UNITS = ['Hundred', 'Thousand', 'Lakh', 'Crore', '']
 
 
+# Function which converts the numbers into their word form ...
 def word_converter():
+    # Taking input value as list ..... To make sorting easier
     value = list(input('Enter the number you want to calculate : '))
     length = len(value)
-    # For ones place
+    # Code which handles numbers between 1 - 10
     if length == 1:
         if int(value[0]) == 0:
             result = 'Zero '
 
         else:
             result = [DIGITS[int(value[0]) - 1]]
-    # FOR tens place
+    # Code which handles numbers between 10 - 99
     elif length == 2:
         a1 = value[0] + value[1]
         a1 = int(a1)
@@ -27,7 +30,7 @@ def word_converter():
             l1 = TENS[int(value[0]) - 1]
             l2 = DIGITS[int(value[1]) - 1]
             result = [l1, l2]
-    # Hundred place
+    # Code which handles numbers between 100 - 999
     elif length == 3:
         a1 = int(value[1] + value[2])
         if a1 == 00:
@@ -45,7 +48,7 @@ def word_converter():
             l3 = TENS[int(value[1]) - 1]
             l4 = DIGITS[int(value[2]) - 1]
             result = [l1, l2, l3, l4]
-    # Thousand place
+    # Code which handles numbers between 1000 - 9999
     elif length == 4 or length == 5:
         if length == 4:  # 1411
             a1 = int(value[1] + value[2] + value[3])
@@ -128,7 +131,7 @@ def word_converter():
                     except:
                         pass
                         result = [l1, l2, l3, l4, l5, l6]
-    # Lakh place
+    # Code which handles numbers between 100000 - 9999999
     elif length == 6 or length == 7:
         if length == 6:
             a1 = int(value[3] + value[4] + value[5])
@@ -214,7 +217,7 @@ def word_converter():
                 except:
                     pass
                     result = [l1, l2, l6, l3, l4, l5, l7, l8, l9]
-    # Crore
+    # Code which handles numbers between 10000000 - 999999999
     elif length == 8 or length == 9:
         if length == 8:
             a1 = int(value[5] + value[6] + value[7])
@@ -370,10 +373,13 @@ def word_converter():
                 except:
                     pass
                     result = [l9, l11, l8, l7, l3, l2, l1, l4, l5]
+    # Printing the result we got after sorting
     print(result)
+    # Returning the result of it
     return result
 
 
+# Function which removes unnecessary unit place name which is added while sorting the number
 def configure(result: [list]):
     try:
         for x in result:
@@ -385,14 +391,17 @@ def configure(result: [list]):
                         result.remove(UNITS[0])
     except IndexError:
         pass
+    # Checking what has been edited in the list while before
     print('Edited : ', result)
 
-    # end = list(set(result) - set(apr))
+    # Returning the finished number which we needed
     return result
 
 
+# Function which is converting list into string
 def war(crt: [list]):
-    print('Edited : ', crt)
+    # Checking the code is right in its what it is resulted out before
+    print('Edited Confirm: ', crt)
     end = ''
     length = int(len(crt))
     for x in range(length):
