@@ -383,10 +383,14 @@ def word_converter():
 def configure(result: [list]):
     try:
         for x in result:
-            if x in UNITS:
+            if x in UNITS:  # Checking if the value is in units list
                 x_index = result.index(x)
+                # checking if the value we got  its +1 indexed value is also in unit
+                # Then removing it
                 if result[int(x_index) + 2] in UNITS and result[int(x_index) + 1] == '':
                     result.remove(result[int(x_index) + 2])
+                    # At lat we are remained with a hundred place
+                    # and removing it if satisfies the given condition
                     if (result[-3] == UNITS[0] and result[-4] == '') or (result[-2] == UNITS[0] and result[-3] == ''):
                         result.remove(UNITS[0])
     except IndexError:
@@ -411,6 +415,13 @@ def war(crt: [list]):
 
 
 if __name__ == '__main__':
+    """ In this program we are the number into its word form through taking its index value 
+        and then assigning it its suitable name 
+         
+         :-- Due to which it created a large number ways to sort the number and 
+              all the possibilities are properly checked but it works for most of the values 
+              you are going to enter.
+    """
     try:
         while True:
             conf = word_converter()
